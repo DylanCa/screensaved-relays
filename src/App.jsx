@@ -156,7 +156,6 @@ export default function App() {
       </nav>
 
       <header className="hero">
-        <span className="alpha-pill">Alpha preview — not released yet</span>
         <h1>Screensaved</h1>
         <p className="tagline">
           A screensaver app for Apple TV. The purpose of Screensaved is to turn
@@ -301,8 +300,7 @@ export default function App() {
 
       <footer>
         <p>
-          Screensaved — currently in alpha preview, not yet released ·{' '}
-          developed by <a href="https://github.com/DylanCa">DylanCa</a> ·{' '}
+          Screensaved — developed by <a href="https://github.com/DylanCa">DylanCa</a> ·{' '}
           <a href="/privacy.html">Privacy policy</a> ·{' '}
           <a href="https://github.com/DylanCa/screensaved-relays">Contact</a>
         </p>
