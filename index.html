@@ -1,67 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Screensaved</title>
-  <meta name="description" content="Screensaved is a screensaver app for Apple TV that displays wallpapers with glanceable widgets: clock, weather, calendar, music, and more.">
-  <style>
-    body {
-      font-family: -apple-system, sans-serif;
-      max-width: 720px; margin: 0 auto; padding: 48px 24px;
-      background: #111; color: #eee; line-height: 1.6;
-    }
-    h1 { font-size: 2em; margin-bottom: 0.2em; }
-    h2 { font-size: 1.3em; margin-top: 2em; }
-    .tagline { color: #bbb; font-size: 1.1em; margin-top: 0; }
-    .card {
-      background: rgba(255,255,255,0.08); border-radius: 16px;
-      padding: 24px; margin: 24px 0;
-    }
-    a { color: #7fb4ff; }
-    ul { padding-left: 1.2em; }
-  </style>
-</head>
-<body>
-  <h1>Screensaved</h1>
-  <p class="tagline">A screensaver app for Apple TV.</p>
-
-  <h2>What is Screensaved?</h2>
-  <p>The purpose of Screensaved is to turn an idle Apple TV into a useful, beautiful
-  display. While your TV is not in use, Screensaved shows a full-screen wallpaper
-  (curated gradients, aerial videos, or your own photos) with small, glanceable
-  information widgets in the corners of the screen — so you can see the time, the
-  weather, your agenda, or what's playing at a glance, from your couch.</p>
-
-  <h2>Widgets</h2>
-  <div class="card">
-    <ul>
-      <li><strong>Clock</strong> — current time and world clocks across timezones</li>
-      <li><strong>Weather</strong> — current conditions, 3-day forecast, air quality</li>
-      <li><strong>Calendar</strong> — your upcoming events from Google Calendar and iCloud</li>
-      <li><strong>Music</strong> — now playing from Spotify or Apple Music, with remote controls</li>
-      <li><strong>Releases</strong> — upcoming episodes, movies and games from your watchlist</li>
-      <li><strong>Steam</strong> — your gaming activity, achievements and friends</li>
-      <li><strong>Daily</strong> — quote of the day, word of the day, "on this day"</li>
-    </ul>
-  </div>
-
-  <h2>Google Calendar integration</h2>
-  <p>If you connect your Google account, Screensaved uses read-only access to your
-  calendars (<code>calendar.readonly</code>) for a single purpose: showing the titles and
-  start times of your upcoming events in the Calendar widget on your own television.
-  Events are fetched directly from the Google Calendar API to your Apple TV, are never
-  stored beyond a short in-memory cache, and are never sent anywhere else. Screensaved
-  has no backend server. You can disconnect your Google account at any time in Settings,
-  which deletes the stored sign-in token.</p>
-
-  <h2>Privacy</h2>
-  <p>Screensaved has no accounts of its own, no analytics, no ads, and no tracking. All
-  data stays between your Apple TV and the services you choose to connect. Read the full
-  <a href="privacy.html">privacy policy</a>.</p>
-
-  <h2>Contact</h2>
-  <p>Developed by <a href="https://github.com/DylanCa">DylanCa</a>. Questions and issues:
-  <a href="https://github.com/DylanCa/screensaved-relays">github.com/DylanCa/screensaved-relays</a>.</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Screensaved — a screensaver app for Apple TV</title>
+    <meta
+      name="description"
+      content="Screensaved is a screensaver app for Apple TV that turns an idle TV into a useful display: beautiful wallpapers with glanceable widgets — clock, weather, calendar, music, releases, Steam."
+    />
+    <meta property="og:title" content="Screensaved — a screensaver app for Apple TV" />
+    <meta
+      property="og:description"
+      content="Beautiful wallpapers with glanceable widgets for your Apple TV: clock, weather, calendar, music and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://screensaved.dylanca.dev/" />
+    <style>
+      /* Pre-hydration background so there's no white flash */
+      html { background: #10162e; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
