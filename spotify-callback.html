@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+  Spotify OAuth relay for Screensaved (tvOS).
+
+  Spotify only allows HTTPS redirect URIs (loopback HTTP aside), but the
+  Apple TV's callback server is plain HTTP on the LAN. This page bridges the
+  two: Spotify redirects the phone's browser here over HTTPS, and the page
+  immediately forwards the authorization code to the TV via a top-level
+  navigation to http://<tv-ip>:<port>/callback (allowed by browsers; the
+  mixed-content restriction applies to subresources, not navigations).
+
+  The TV's LAN address arrives in the OAuth `state` parameter, set by the
+  app when it builds the authorize URL. The code is PKCE-protected: it is
+  useless without the verifier that never leaves the Apple TV.
+
+  Host this on any static HTTPS host (GitHub Pages) and register its URL as
+  the redirect URI in the Spotify developer dashboard.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screensaved — connecting Spotify</title>
+  <style>
+    body {
+      font-family: -apple-system, sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; margin: 0; padding: 24px;
+      background: #111; color: #eee; text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="message">Connecting to your Apple TV…</h2>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get("code");
+      var error = params.get("error");
+      var state = params.get("state") || "";
+      var message = document.getElementById("message");
+
+      // state carries the TV's LAN endpoint, e.g. "192.168.1.23:8909".
+      // Strict shape check so this page can't be used as an open redirector.
+      if (!/^\d{1,3}(\.\d{1,3}){3}:\d{1,5}$/.test(state)) {
+        message.textContent = "Missing or invalid Apple TV address. Start the connection again from the TV.";
+        return;
+      }
+      if (!code) {
+        message.textContent = error === "access_denied"
+          ? "Authorization was denied. You can close this page."
+          : "Spotify did not return a code. Start again from the TV.";
+        return;
+      }
+
+      window.location.replace(
+        "http://" + state + "/callback?code=" + encodeURIComponent(code)
+      );
+      // If the TV is unreachable the navigation just fails in the browser;
+      // leave a hint behind it.
+      setTimeout(function () {
+        message.textContent = "Could not reach the Apple TV. Make sure this phone is on the same Wi-Fi network, then try again.";
+      }, 4000);
+    })();
+  </script>
+</body>
+</html>
