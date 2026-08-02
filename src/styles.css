@@ -16,9 +16,14 @@
 
 html { scroll-behavior: smooth; }
 
+/* Base color on html, NOT body: the drifting blobs are negative-z-index
+   body pseudo-elements, and an opaque body background would paint over
+   them (body backgrounds paint after negative-z children of html). */
+html { background: var(--bg); }
+
 body {
   font-family: var(--font);
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
