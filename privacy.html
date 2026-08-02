@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screensaved — Privacy Policy</title>
+  <style>
+    body {
+      font-family: -apple-system, sans-serif;
+      max-width: 720px; margin: 0 auto; padding: 48px 24px;
+      background: #111; color: #eee; line-height: 1.6;
+    }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.2em; margin-top: 2em; }
+    a { color: #7fb4ff; }
+    .updated { color: #999; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h1>Screensaved — Privacy Policy</h1>
+  <p class="updated">Last updated: August 2, 2026</p>
+
+  <p>Screensaved is a screensaver app for Apple TV. It has no backend server, no analytics,
+  no advertising, and no tracking. We (the developer) never see, collect, store, or sell any
+  of your data.</p>
+
+  <h2>Where your data goes</h2>
+  <p>Everything the app knows lives on your Apple TV. When you enable a widget, the app talks
+  <em>directly</em> from your Apple TV to the service that powers it — never through any server
+  of ours:</p>
+  <ul>
+    <li><strong>Weather</strong> — your location (or a city you type) is sent to
+      Open-Meteo to fetch the forecast.</li>
+    <li><strong>Music</strong> — with Spotify, the app uses your own Spotify application
+      credentials and talks to Spotify's API on your behalf. With Apple Music, playback data
+      stays within Apple's frameworks.</li>
+    <li><strong>Calendar</strong> — your iCloud (app-specific password) or Google Calendar
+      credentials are used to fetch events directly from Apple or Google.</li>
+    <li><strong>Releases</strong> — your SIMKL watchlist is fetched from SIMKL; upcoming games
+      come from IGDB.</li>
+    <li><strong>Steam</strong> — your public Steam profile data is fetched from the Steam Web API.</li>
+    <li><strong>Wallpapers</strong> — videos and photos are fetched from Pexels or from your
+      iCloud Shared Album's public link.</li>
+  </ul>
+
+  <h2>Credentials and tokens</h2>
+  <p>Sign-in tokens (Spotify, SIMKL, Google, iCloud) are stored only in your Apple TV's
+  keychain and preferences. They never leave the device except to authenticate directly with
+  the service they belong to. Disconnecting an account in Settings deletes its token.</p>
+
+  <h2>Location</h2>
+  <p>If you allow location access, it is used only to fetch local weather from Open-Meteo.
+  You can instead type a city name, in which case the device's location is never accessed.</p>
+
+  <h2>Third-party services</h2>
+  <p>Each service you choose to connect has its own privacy policy:
+  <a href="https://open-meteo.com/en/terms">Open-Meteo</a>,
+  <a href="https://www.spotify.com/legal/privacy-policy/">Spotify</a>,
+  <a href="https://www.apple.com/legal/privacy/">Apple</a>,
+  <a href="https://policies.google.com/privacy">Google</a>,
+  <a href="https://simkl.com/about/privacy/">SIMKL</a>,
+  <a href="https://www.igdb.com/privacy_policy">IGDB</a>,
+  <a href="https://store.steampowered.com/privacy_agreement/">Steam</a>,
+  <a href="https://www.pexels.com/privacy-policy/">Pexels</a>,
+  <a href="https://zenquotes.io/">ZenQuotes</a>.</p>
+
+  <h2>Children</h2>
+  <p>Screensaved does not knowingly collect any personal information from anyone, including
+  children.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the updated version will be posted at this address.</p>
+
+  <h2>Contact</h2>
+  <p>Questions: open an issue at
+  <a href="https://github.com/DylanCa/screensaved-relays">github.com/DylanCa/screensaved-relays</a>.</p>
+</body>
+</html>
